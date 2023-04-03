@@ -28,7 +28,7 @@
 |부회장| |
 |:---:|:---:|
 |김지훈|임재훈|
-|<img src="https://file.notion.so/f/s/b2b4d0fc-f9cf-4023-a4a4-80a69587c6c6/Untitled.png?id=d99866fc-4e32-4afa-a209-7bddebecd954&table=block&spaceId=614d45e5-b13e-4290-9662-287c2484d7a2&expirationTimestamp=1680604610423&signature=NThfoDCSSv94pn8mxhMEzG1o7xTttokCLCZamVvFk38&downloadName=Untitled.png" width="120" height="120"/> |<img src="" width="120" height="120"/> |
+|<img src="https://file.notion.so/f/s/b2b4d0fc-f9cf-4023-a4a4-80a69587c6c6/Untitled.png?id=d99866fc-4e32-4afa-a209-7bddebecd954&table=block&spaceId=614d45e5-b13e-4290-9662-287c2484d7a2&expirationTimestamp=1680604610423&signature=NThfoDCSSv94pn8mxhMEzG1o7xTttokCLCZamVvFk38&downloadName=Untitled.png" width="120" height="120"/> |<img src="https://user-images.githubusercontent.com/87347699/229526272-7dbcf7f2-f2df-465b-9946-587e8609635c.jpg" width="120" height="120"/> |
 
 
  ### 🗣 질문이 있다면 ?? 백엔드 단톡방으로 !! <br/>
