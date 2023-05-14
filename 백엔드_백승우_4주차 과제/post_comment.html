@@ -168,8 +168,10 @@
       <h3>댓글</h3>
       <button id="comment_create">댓글 쓰기</button>
       <div id="comment_input" style="display:none;">
-        <input type="text" placeholder="댓글 내용 입력">
-        <button id="comment_submit" onclick="alert('작성 완료')">작성</button>
+        <form>
+          <input type="text" placeholder="댓글 내용 입력">
+          <button id="comment_submit" onclick="alert('작성 완료')">작성</button>
+        </form>
       </div>
     </div>
     <div class="comment-info">
@@ -187,8 +189,10 @@
         <h3>답글</h3>
         <button id="recomment_create">답글 쓰기</button>
         <div id="recomment_input" style="display:none;">
-          <input type="text" placeholder="답글 내용 입력">
-          <button id="recomment_submit" onclick="alert('작성 완료')">작성</button>
+          <form>
+            <input type="text" placeholder="답글 내용 입력">
+            <button id="recomment_submit" onclick="alert('작성 완료')">작성</button>
+          </form>
         </div>
       </div>
       <div>

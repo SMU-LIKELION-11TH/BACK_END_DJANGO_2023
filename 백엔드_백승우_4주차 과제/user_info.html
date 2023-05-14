@@ -32,7 +32,7 @@
 			color: white;
 			border: none;
 			cursor: pointer;
-			margin-left: 10px;
+			margin-left: 0px;
 		}
 	</style>
 </head>
@@ -73,15 +73,18 @@
 		</div>
 		<div class="item">
 			<div class="label">Password change</div>
-			<input type="text" name="PwChange" placeholder="password1234">
-			<div><input type="submit" onclick="alert('비밀번호 변경 완료/실패')" value="변경"></div>
+			<form>
+				<input type="text" name="PwChange" placeholder="password1234">
+				<input type="submit" onclick="alert('비밀번호 변경 완료/실패')" value="변경">
+			</form>
 		</div>
 		<div class="item">
 			<div class="label">Email change</div>
-			<input type="text" name="EmailChange"placeholder="example@exam.com">
-			<div><input type="submit" onclick="alert('이메일 변경 완료/실패')" value="변경"></div>
+			<form>
+				<input type="text" name="EmailChange"placeholder="example@exam.com">
+				<input type="submit" onclick="alert('이메일 변경 완료/실패')" value="변경">
+			</form>
 		</div>
-
 	</div>
 
 	<script>
