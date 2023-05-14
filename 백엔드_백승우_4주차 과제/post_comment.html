@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <title>게시글</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <style>
     h1 {
       font-size: 2.5rem;
@@ -39,11 +38,6 @@
 
     .comment {
       margin: 2rem 0;
-    }
-
-    .recomment {
-      margin-left: 5%;
-      margin-top: 2rem;
     }
 
     .comment-header {
@@ -96,6 +90,63 @@
     .comment-info p {
       margin: 0;
     }
+
+    .recomment {
+      margin-left: 5%;
+      margin-top: 2rem;
+    }
+
+    .recomment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      margin-top: -1.5rem;
+      font-size: 1rem;
+      color: gray;
+    }
+
+    .recomment-header h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: normal;
+      color: black;
+    }
+
+    .recomment-body {
+      border: 1px solid black;
+      padding: 1rem;
+      background-color: lightgray;
+    }
+
+    .recomment-body p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: black;
+    }
+
+    .recomment-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: gray;
+      margin-top: 0.2rem;
+    }
+
+    .recomment-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: gray;
+      margin-bottom: 1rem;
+    }
+
+    .recomment-info p {
+      margin: 0;
+    }
+
   </style>
 </head>
 
@@ -115,7 +166,11 @@
   <div class="comment">
     <div class="comment-header">
       <h3>댓글</h3>
-      <button id = "comment_create">댓글 쓰기</button>
+      <button id="comment_create">댓글 쓰기</button>
+      <div id="comment_input" style="display:none;">
+        <input type="text" placeholder="댓글 내용 입력">
+        <button id="comment_submit" onclick="alert('작성 완료')">작성</button>
+      </div>
     </div>
     <div class="comment-info">
       <p>작성자: User_id</p>
@@ -128,38 +183,40 @@
       </div>
     </div>
     <div class="recomment">
-      <div class="comment-header">
+      <div class="recomment-header">
         <h3>답글</h3>
-        <button>답글 쓰기</button>
+        <button id="recomment_create">답글 쓰기</button>
+        <div id="recomment_input" style="display:none;">
+          <input type="text" placeholder="답글 내용 입력">
+          <button id="recomment_submit" onclick="alert('작성 완료')">작성</button>
+        </div>
       </div>
       <div>
-        <div class="comment-info">
+        <div class="recomment-info">
           <p>작성자: User_id</p>
           <p>작성 시간: xxxx-xx-xx</p>
           <p>수정 시간: xxxx-xx-xx</p>
         </div>
-        <div class="comment-body">
+        <div class="recomment-body">
           <div>
             <p>답글 내용</p>
           </div>
         </div>
       </div>
     </div>
-    <script>
-    // html dom 이 다 로딩된 후 실행된다.
-    $(document).ready(function(){
-        // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
-        $("#comment_create").click(function(){
-            var submenu = $(".comment-body");
+  </div>
+  <script>
+    const commentCreateBtn = document.getElementById("comment_create");
+    const commentInput = document.getElementById("comment_input");
+    const recommentCreateBtn = document.getElementById("recomment_create");
+    const recommentInput = document.getElementById("recomment_input");
 
-            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-            if( submenu.is(":visible") ){
-                submenu.hide();
-            }else{
-                submenu.show();
-            }
-        });
+    commentCreateBtn.addEventListener("click", () => {
+      commentInput.style.display = "block";
     });
-    </script>
+    recommentCreateBtn.addEventListener("click", () => {
+      recommentInput.style.display = "block";
+    });
+  </script>
 </body>
 </html>

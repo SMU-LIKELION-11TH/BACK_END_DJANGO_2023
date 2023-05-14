@@ -1,82 +1,145 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>게시판</title>
+    <meta charset="utf-8">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <title>게시판</title>
-  <style>
-    .board-body {
-      border: 1px solid black;
-      padding: 1rem;
-      background-color: lightgray;
-    }
+      .board {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+      }
 
-    .board-body p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: black;
-    }
-  </style>
-</head>
+      .header {
+        background-color: lightgray;
+        padding: 10px;
+      }
 
-<body>
-  <div>
-    <h1>게시판</h1>
-  </div>
-  <div>
-    <h3>카테고리</h3>
-  </div>
-  <div class="board-body">
-    <ul>
-      <li>
-        <details>
-          <summary>category1</summary>
-          <ul>
-            <li>게시글1</li>
-            <li>게시글2</li>
-            <li>게시글3</li>
-            <li>게시글4</li>
-            <li>더보기</li>
-          </ul>
-        </details>
-      </li>
-      <li>
-        <details>
-          <summary>category2</summary>
-          <ul>
-            <li>게시글1</li>
-            <li>게시글2</li>
-            <li>게시글3</li>
-            <li>게시글4</li>
-            <li>더보기</li>
-          </ul>
-        </details>
-      </li>
-      <li>
-        <details>
-          <summary>category3</summary>
-          <ul>
-            <li>게시글1</li>
-            <li>게시글2</li>
-            <li>게시글3</li>
-            <li>게시글4</li>
-            <li>더보기</li>
-          </ul>
-        </details>
-      </li>
-      <li>
-        <details>
-          <summary>category4</summary>
-          <ul>
-            <li>게시글1</li>
-            <li>게시글2</li>
-            <li>게시글3</li>
-            <li>게시글4</li>
-            <li>더보기</li>
-          </ul>
-        </details>
-      </li>
-    </ul>
-  </div>
-</body>
+      .header h1 {
+        font-size: 30px;
+        margin: 0;
+      }
+
+      .categories {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        background-color: white;
+        padding: 10px;
+        border: 1px solid black;
+      }
+
+      .categories h3 {
+        font-size: 20px;
+        margin: 0;
+      }
+
+      .board-body {
+        margin-top: 20px;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      li {
+        margin: 10px;
+        border: 1px solid black;
+        background-color: white;
+      }
+
+      details {
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      summary {
+        font-size: 15px;
+        font-weight: bold;
+      }
+
+      ul li ul li {
+        font-size: 15px;
+        padding: 5px 10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+  </head>
+  <body class="board">
+    <div class="header">
+      <h1>게시판</h1>
+    </div>
+    <div class="categories">
+      <h3>카테고리</h3>
+    </div>
+    <div class="board-body">
+      <ul>
+        <li>
+          <details>
+            <summary>category1</summary>
+            <ul>
+              <li><a href="#">게시글1</a></li>
+              <li><a href="#">게시글2</a></li>
+              <li><a href="#">게시글3</a></li>
+              <li><a href="#">게시글4</a></li>
+              <li><a href="#">더보기</a></li>
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>category2</summary>
+            <ul>
+              <li><a href="#">게시글1</a></li>
+              <li><a href="#">게시글2</a></li>
+              <li><a href="#">게시글3</a></li>
+              <li><a href="#">게시글4</a></li>
+              <li><a href="#">더보기</a></li>
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>category3</summary>
+            <ul>
+              <li><a href="#">게시글1</a></li>
+              <li><a href="#">게시글2</a></li>
+              <li><a href="#">게시글3</a></li>
+              <li><a href="#">게시글4</a></li>
+              <li><a href="#">더보기</a></li>
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>category4</summary>
+            <ul>
+              <li><a href="#">게시글1</a></li>
+              <li><a href="#">게시글2</a></li>
+              <li><a href="#">게시글3</a></li>
+              <li><a href="#">게시글4</a></li>
+              <li><a href="#">더보기</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>
