@@ -12,15 +12,13 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Post',
+            name='Comment',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100)),
-                ('detail', models.CharField(max_length=1000)),
+                ('liked', models.IntegerField()),
+                ('detail', models.CharField(max_length=50)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updates_at', models.DateTimeField(auto_now_add=True)),
-                ('category', models.CharField(max_length=50)),
-                ('image', models.ImageField(upload_to='uploads/')),
+                ('updated_at', models.DateTimeField(auto_now_add=True)),
             ],
         ),
     ]
