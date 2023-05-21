@@ -1,11 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-class User(models.Model):
-    nickname = models.CharField(max_length=10, null=True)
-    password = models.CharField(max_length=12, null=True)
-    level = models.IntegerField(null=True)
-    log_in_at = models.DateTimeField(auto_now_add=True)
-    pw_change_at = models.DateTimeField(auto_now_add=True)
-    email = models.CharField(max_length=30, null=True)
-    sign_up_at = models.DateTimeField(auto_now=True)
+class User(AbstractUser):
+    pw_change_at = models.DateTimeField(auto_now=True)
     profile_image = models.ImageField(upload_to='uploads/', null=True)
+    first_name = None
+    last_name = None
+    username = models.CharField(max_length=16, unique=True, null=False, default='')
+
