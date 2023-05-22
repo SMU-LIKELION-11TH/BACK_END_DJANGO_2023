@@ -10,7 +10,7 @@ def post_list(request):
 def homepage(request):
     name = '배달의민족'
     return render(request, 'home.html', {'name':name})
-
+5
 def store_1(request):
     name = '부대통령'
     return render(request, 'store1.html', {'name':name})
