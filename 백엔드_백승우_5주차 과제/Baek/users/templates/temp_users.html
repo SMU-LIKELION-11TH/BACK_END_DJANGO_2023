@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>사용자 정보</title>
+    <meta charset="UTF-8">
+	<style>
+		.container {
+			display: flex;
+			flex-direction: column;
+			margin-top: 50px;
+			font-size: 18px;
+		}
+		.item {
+			display: flex;
+			margin-bottom: 10px;
+		}
+		.label {
+			font-weight: bold;
+			margin-right: 10px;
+		}
+		.button {
+			padding: 5px 10px;
+			background-color: gray;
+			color: white;
+			border: none;
+			cursor: pointer;
+			margin-left: 10px;
+		}
+		input[type="submit"] {
+			padding: 5px 10px;
+			background-color: gray;
+			color: white;
+			border: none;
+			cursor: pointer;
+			margin-left: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">
+			<div class="label">ID:</div>
+			<div>{{id}}</div>
+		</div>
+			<div class="item">
+			<div class="label">Nickname:</div>
+			<div>{{username}}</div>
+		</div>
+		<div class="item">
+			<div class="label">Password:</div>
+			<div class="password">{{password}}</div>
+			<button class="button" onclick="showPassword()">Show Password</button>
+		</div>
+		<div class="item">
+			<div class="label">is_staff:</div>
+			<div>{{is_staff}}</div>
+		</div>
+		<div class="item">
+			<div class="label">Last login:</div>
+			<div>{{last_login}}</div>
+		</div>
+		<div class="item">
+			<div class="label">Password changed at:</div>
+			<div>{{pw_change_at}}</div>
+		</div>
+		<div class="item">
+			<div class="label">Email:</div>
+			<div>{{email}}</div>
+		</div>
+		<div class="item">
+			<div class="label">Sign up at:</div>
+			<div>{{date_joined}}</div>
+		</div>
+		<div class="item">
+			<div class="label">Password change</div>
+			<form>
+				<input type="text" name="PwChange" placeholder="password1234">
+				<input type="submit" onclick="alert('비밀번호 변경 완료/실패')" value="변경">
+			</form>
+		</div>
+		<div class="item">
+			<div class="label">Email change</div>
+			<form>
+				<input type="text" name="EmailChange"placeholder="example@exam.com">
+				<input type="submit" onclick="alert('이메일 변경 완료/실패')" value="변경">
+			</form>
+		</div>
+	</div>
+
+	<script>
+		function showPassword() {
+			var passwordDiv = document.querySelector('.password');
+			passwordDiv.innerHTML = 'password1234';
+			var button = document.querySelector('.button');
+			button.innerHTML = 'Hide Password';
+			button.onclick = hidePassword;
+		}
+
+		function hidePassword() {
+			var passwordDiv = document.querySelector('.password');
+			passwordDiv.innerHTML = '********';
+			var button = document.querySelector('.button');
+			button.innerHTML = 'Show Password';
+			button.onclick = showPassword;
+		}
+	</script>
+</body>
+</html>

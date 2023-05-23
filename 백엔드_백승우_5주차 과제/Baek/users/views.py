@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+def users_view(request):
+    username = 'Baek'
+    return render(request, 'temp_users.html', {'username': username})
+
