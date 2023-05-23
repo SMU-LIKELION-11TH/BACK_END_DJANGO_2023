@@ -10,7 +10,3 @@ class Post(models.Model):
     category = models.CharField(max_length=50)
     image = models.ImageField(upload_to='uploads/')
     user = models.ForeignKey('user.User', on_delete = models.CASCADE)
-
-
-
-
