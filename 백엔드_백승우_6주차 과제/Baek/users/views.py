@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import User
 from django.contrib.auth import authenticate, login
+from users.models import User
 def users_view(request):
     user1 = User.objects.get(id=1)
 
@@ -12,9 +12,11 @@ def users_view(request):
 
 def login_view(request):
     if request.method == "GET":
+        print('get')
         return render(request, 'temp_login.html')
 
     elif request.method == "POST":
+        print('post')
         user_id = request.POST.get('id')
         user_pw = request.POST.get('password')
 
@@ -22,6 +24,11 @@ def login_view(request):
 
         if user is not None:
             login(request, user=user)
-            return render(request, 'temp_users.html')
+            user = User.objects.get(username=user_id)
+            context = {
+                'user1': user
+            }
+            return render(request, 'temp_users.html', context)
         else:
             return redirect('login_url')
+
