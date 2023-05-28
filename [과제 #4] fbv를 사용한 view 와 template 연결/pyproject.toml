@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "[과제 #3] 게시판 모델 만들기"
+version = "0.1.0"
+description = ""
+authors = ["Hepheir <hepheir@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.2.1"
+Pillow = "^9.5.0"
+djangorestframework = "^3.14.0"
+Markdown = "^3.4.3"
+django-filter = "^23.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
