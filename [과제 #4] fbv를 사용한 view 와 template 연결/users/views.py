@@ -8,9 +8,9 @@ def post_list1(request):
     return HttpResponse('''
     <h1> hello, </h1> 
     <p> {name} </p>
-    <p>반가워요 </p>'''.format (name=name))
+    <p> 반가워요 </p>'''.format(name=name))
 
 def post_list2(request):
     name ='홍철'
-    return render (request, 'index.html', {'name':name})
+    return render(request, 'index.html', {'name': name})
 

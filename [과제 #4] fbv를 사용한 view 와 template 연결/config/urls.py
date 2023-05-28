@@ -23,7 +23,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("liongram/", include("posts.urls"))
+    path('lionlog/', include("posts.urls")),
+    path('project/', include("users.urls")),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
