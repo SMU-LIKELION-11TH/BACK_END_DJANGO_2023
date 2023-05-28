@@ -19,14 +19,14 @@ def post_view(request, post_id):
 
 def category_view(request):
 
-    user = request.user
+
     post_list1 = Post.objects.filter(category=1)
     post_list2 = Post.objects.filter(category=2)
     post_list3 = Post.objects.filter(category=3)
     post_list4 = Post.objects.filter(category=4)
 
     context = {
-        'user': user,
+
         'post_list1': post_list1,
         'post_list2': post_list2,
         'post_list3': post_list3,
@@ -36,12 +36,12 @@ def category_view(request):
     return render(request, 'posts_list.html', context)
 
 def post_create(request):
-    user = request.user
+
     title = request.POST.get('title')
     category = request.POST.get('category')
     content = request.POST.get('content')
 
-    post = Post.objects.create(category=category, title=title, content=content, user=user)
+    post = Post.objects.create(category=category, title=title, content=content, user=request.user)
     post.save()
 
     return redirect('post_detail', post_id=post.id)
@@ -73,11 +73,11 @@ def post_update(request, post_id):
     return redirect('post_detail', post_id=post.id)
 
 def comment_create(request, post_id):
-    user = request.user
+
     post = Post.objects.get(id=post_id)
     content = request.POST.get('comment_content')
 
-    comment = Comment.objects.create(content=content, user=user, post=post)
+    comment = Comment.objects.create(content=content, user=request.user, post=post)
     comment.save()
 
     return redirect('post_detail', post_id=post.id)
