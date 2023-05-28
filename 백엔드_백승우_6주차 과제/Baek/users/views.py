@@ -7,14 +7,14 @@ def user_detail(request):
         context = {
             'user': user
         }
-        return render(request, 'detail.html', context)
+        return render(request, 'posts_detail.html', context)
     else:
         return redirect('login_view')
 
 def login_view(request):
     if request.method == "GET":
         print('get')
-        return render(request, 'login.html')
+        return render(request, 'users_login.html')
 
     elif request.method == "POST":
         print('post')

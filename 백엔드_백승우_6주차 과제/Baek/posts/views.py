@@ -15,7 +15,7 @@ def post_view(request, post_id):
         #, 'recomment': recomment
     }
 
-    return render(request, 'detail.html', context)
+    return render(request, 'posts_detail.html', context)
 
 def category_view(request, user_id):
 
@@ -33,7 +33,7 @@ def category_view(request, user_id):
         'post_list4': post_list4,
     }
 
-    return render(request, 'list.html', context)
+    return render(request, 'posts_list.html', context)
 
 def post_create(request, user_id):
     user = User.objects.get(id=user_id)
