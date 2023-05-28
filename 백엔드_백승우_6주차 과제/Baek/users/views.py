@@ -3,11 +3,8 @@ from django.contrib.auth import authenticate, login
 
 def user_detail(request):
     if request.user.is_authenticated:
-        user = request.user
-        context = {
-            'user': user
-        }
-        return render(request, 'users_detail.html', context)
+
+        return render(request, 'users_detail.html')
     else:
         return redirect('login_view')
 

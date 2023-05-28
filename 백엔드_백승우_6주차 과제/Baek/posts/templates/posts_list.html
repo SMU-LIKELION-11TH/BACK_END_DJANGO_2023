@@ -91,7 +91,7 @@
   </div>
   <button class="create-button" id="post_create">게시물 쓰기</button>
   <div id="post_input" style="display:none;">
-    <form action="{% url 'post_create' user.id %}" method="POST">{% csrf_token %}
+    <form action="{% url 'post_create' %}" method="POST">{% csrf_token %}
         <div>
             <p>카테고리 선택</p>
             <input type="radio" id="1" name="category" value="1">

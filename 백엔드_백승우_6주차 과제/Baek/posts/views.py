@@ -35,8 +35,8 @@ def category_view(request):
 
     return render(request, 'posts_list.html', context)
 
-def post_create(request, user_id):
-    user = User.objects.get(id=user_id)
+def post_create(request):
+    user = request.user
     title = request.POST.get('title')
     category = request.POST.get('category')
     content = request.POST.get('content')
