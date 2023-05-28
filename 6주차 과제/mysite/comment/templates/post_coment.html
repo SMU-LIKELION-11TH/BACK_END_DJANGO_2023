@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="style.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
       <h1>B l o g</h1>
         <div class ="main">
           <div class ="menu">
@@ -16,12 +14,26 @@
               <ol><a href="log-in.html">Log In</a></ol>
                   </h3>
           </div>
-             <div class ="detail">
-                 <li><a href="{{post_title}}.html">{{post_title}}</a></li>
-             </div>
-
         </div>
 
+<h1>{{ post.title }}</h1>
+<p>{{ post.detail }}</p>
 
+<h2>댓글</h2>
+<ul>
+
+    <li>
+      {{ comment.detail}}
+      <form method="post" action="{% url 'delete_comment' comment.id %}">
+        <button type="submit">삭제</button>
+      </form>
+    </li>
+</ul>
+
+<h2>새로운 댓글 작성</h2>
+<form method="post" action="{% url 'add_comment' post.id %}">
+  <textarea name="content"></textarea>
+  <button type="submit">작성</button>
+</form>
 </body>
 </html>
