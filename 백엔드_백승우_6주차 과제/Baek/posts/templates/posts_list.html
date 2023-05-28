@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>게시판</title>
+    <meta charset="utf-8">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+      }
+
+      .board {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+      }
+
+      .header {
+        background-color: lightgray;
+        padding: 10px;
+      }
+
+      .header h1 {
+        font-size: 30px;
+        margin: 0;
+      }
+
+      .categories {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        background-color: white;
+        padding: 10px;
+        border: 1px solid black;
+      }
+
+      .categories h3 {
+        font-size: 20px;
+        margin: 0;
+      }
+
+      .board-body {
+        margin-top: 20px;
+      }
+
+      ul {
+
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      li {
+        margin: 10px;
+        border: 1px solid black;
+        background-color: white;
+      }
+
+      details {
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      summary {
+        font-size: 15px;
+        font-weight: bold;
+      }
+
+      ul li ul li {
+
+        font-size: 15px;
+        padding: 5px 10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .create-button {
+        margin-left: 90%
+      }
+    </style>
+  </head>
+  <div>
+      <p>{{user.username}}님, 안녕하세요</p>
+  </div>
+  <button class="create-button" id="post_create">게시물 쓰기</button>
+  <div id="post_input" style="display:none;">
+    <form action="{% url 'post_create' %}" method="POST">{% csrf_token %}
+        <div>
+            <p>카테고리 선택</p>
+            <input type="radio" id="1" name="category" value="1">
+            <label for="category1">1</label>
+            <input type="radio" id="2" name="category" value="2">
+            <label for="category2">2</label>
+            <input type="radio" id="3" name="category" value="3">
+            <label for="category3">3</label>
+            <input type="radio" id="4" name="category" value="4">
+            <label for="category4">4</label>
+        </div>
+        <input type="text" id="title" name="title" style="width: 500px; vertical-align: top;" placeholder="제목">
+        <input type="text" id="content" name="content" style="width: 500px; vertical-align: top;" placeholder="내용">
+        <input type="submit" onclick="" value="작성">
+    </form>
+  </div>
+  <body class="board">
+    <div class="header">
+      <h1>게시판</h1>
+    </div>
+    <div class="categories">
+      <h3>카테고리</h3>
+    </div>
+    <div class="board-body">
+      <ul>
+        <li>
+          <details>
+            <summary>category1</summary>
+            <ul>
+              {% for post in post_list1 %}
+                <li>
+                  <a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        </li>
+        <li>
+         <details>
+            <summary>category2</summary>
+            <ul>
+              {% for post in post_list2 %}
+                <li>
+                  <a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        </li>
+        <li>
+         <details>
+            <summary>category3</summary>
+            <ul>
+              {% for post in post_list3 %}
+                <li>
+                  <a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        </li>
+        <li>
+         <details>
+            <summary>category4</summary>
+            <ul>
+              {% for post in post_list4 %}
+                <li>
+                  <a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+  <script>
+    const commentCreateBtn = document.getElementById("post_create");
+    const commentInput = document.getElementById("post_input");
+
+    commentCreateBtn.addEventListener("click", () => {
+      commentInput.style.display = "block";
+    });
+  </script>
+  </body>
+</html>
