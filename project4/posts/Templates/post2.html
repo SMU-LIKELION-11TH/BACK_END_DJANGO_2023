@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div style="height:203px; background-color:#394867"></div>
+
+    <p>
+<!--        {{ post1 }}-->
+
+        {% for post in post2 %}
+            <div>
+            <h3> {{post.title}} </h3>
+            작성자: {{post.writer.username}}
+            작성일자: {{post.created_at}}<br/>
+            조회수: {{post.views}}<br/><br/><br/>
+            내용: {{post.text}}<br/>
+
+            </div>
+
+        {% endfor %}
+
+
+    </p>
+
+
+    <br>
+    <button onclick="history.back()">Go Back</button>
+    <br>
+
+
+    <div style="background-color:#F1F6F9"> <h3> -----  Comments  -----   </h3> </div>
+
+    <p>
+        {% for comment in comment2 %}
+            <p> {{comment.text}} </p>
+            <p> Written by: {{comment.writer.username}}</p>
+
+            <h2>Replies</h2>
+            (% for reply in reply2 %}
+                {% if reply.comment == comment %}
+                    <p>{{reply.text}}</p>
+                    <p> Written by: {{reply.writer.username}}</p>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </p>
+
+
+
+
+</body>
+</html>
