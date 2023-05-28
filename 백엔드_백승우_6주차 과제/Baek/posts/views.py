@@ -17,9 +17,9 @@ def post_view(request, post_id):
 
     return render(request, 'posts_detail.html', context)
 
-def category_view(request, user_id):
+def category_view(request):
 
-    user = User.objects.get(id=user_id)
+    user = request.user
     post_list1 = Post.objects.filter(category=1)
     post_list2 = Post.objects.filter(category=2)
     post_list3 = Post.objects.filter(category=3)
@@ -52,7 +52,7 @@ def post_delete(request, post_id):
     if request.user == post.user:
         if request.method == 'POST':
             post.delete()
-            return redirect('category_detail', user_id=request.user.id)
+            return redirect('post_list')
 
     return redirect('post_detail', post_id=post.id)
 
