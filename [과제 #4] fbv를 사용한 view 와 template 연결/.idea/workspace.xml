@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="42dc51b0-f66e-4e0a-b40c-ca4b9b12b625" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pythonProject4(2).iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/Templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/Templates/post1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/Templates/post2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/migrations/0002_comment_reply.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/migrations/0003_rename_author_comment_writer_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/migrations/0004_post_created_at_post_image_alter_comment_created_at_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/Templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0002_remove_user_is_active_user_username_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0003_user_pic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0004_alter_user_options_alter_user_managers_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2PmgzoGwpJYH4aTNew9W0rIkTFK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/hyjoo/BACK_END_DJANGO_2023/project4",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+  }
+}]]></component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="pythonProject4(2)" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="pythonProject4(2)" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hyjoo\PycharmProjects\pythonProject_liongram\posts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hyjoo\PycharmProjects\pythonProject_liongram\users\Templates" />
+      <recent name="C:\Users\hyjoo\PycharmProjects\pythonProject_liongram\posts\Templates" />
+      <recent name="C:\Users\hyjoo\PycharmProjects\pythonProject_liongram\posts" />
+      <recent name="C:\Users\hyjoo\PycharmProjects\pythonProject4(2)\posts" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="42dc51b0-f66e-4e0a-b40c-ca4b9b12b625" name="Changes" comment="" />
+      <created>1684067935904</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684067935904</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -5,6 +5,5 @@ app_name ="lionlog"
 
 urlpatterns = [
     path("", views.home),
-    path("post1/", views.post1),
-    path("post2/", views.post2),
+    path("post/<int:id>/", views.post1),
 ]
