@@ -8,11 +8,11 @@
 			display: flex;
 			flex-direction: column;
 			margin-top: 50px;
-			font-size: 18px;
+			font-size: 25px;
 		}
 		.item {
 			display: flex;
-			margin-bottom: 10px;
+			margin-bottom: 15px;
 		}
 		.label {
 			font-weight: bold;
@@ -34,17 +34,29 @@
 			cursor: pointer;
 			margin-left: 0px;
 		}
+		.category {
+			font-size: 22px;
+			display: block;
+			width: 11%;
+			height: 28px;
+			padding: 3px;
+			margin-left: 85%;
+			border: 0.5px solid black;
+		}
 	</style>
 </head>
 <body>
+	<div>
+		<a href="{% url 'post_list' user.id %}" class="category">게시판으로 이동</a>
+	</div>
 	<div class="container">
 		<div class="item">
 			<div class="label">ID:</div>
-			<div>{{user1.id}}</div>
+			<div>{{user.id}}</div>
 		</div>
 			<div class="item">
-			<div class="label">Nickname:</div>
-			<div>{{user1.username}}</div>
+			<div class="label">Username:</div>
+			<div>{{user.username}}</div>
 		</div>
 		<div class="item">
 			<div class="label">Password:</div>
@@ -55,23 +67,23 @@
 		</div>
 		<div class="item">
 			<div class="label">is_staff:</div>
-			<div>{{user1.is_staff}}</div>
+			<div>{{user.is_staff}}</div>
 		</div>
 		<div class="item">
 			<div class="label">Last login:</div>
-			<div>{{user1.last_login}}</div>
+			<div>{{user.last_login}}</div>
 		</div>
 		<div class="item">
 			<div class="label">Password changed at:</div>
-			<div>{{user1.pw_change_at}}</div>
+			<div>{{user.pw_change_at}}</div>
 		</div>
 		<div class="item">
 			<div class="label">Email:</div>
-			<div>{{user1.email}}</div>
+			<div>{{user.email}}</div>
 		</div>
 		<div class="item">
 			<div class="label">Sign up at:</div>
-			<div>{{user1.date_joined}}</div>
+			<div>{{user.date_joined}}</div>
 		</div>
 		<div class="item">
 			<div class="label">Password change</div>
@@ -94,7 +106,7 @@
         var passwordDiv = document.querySelector('.password');
         var button = document.querySelector('.button');
 
-        var password = "{{ user1.password }}";
+        var password = "{{ user.password }}";
 
         passwordDiv.innerHTML = password;
         button.innerHTML = 'Hide Password';

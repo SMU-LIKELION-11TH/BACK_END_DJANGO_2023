@@ -1,19 +1,20 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from users.models import User
-def users_view(request):
-    user1 = User.objects.get(id=1)
 
-    context = {
-        'user1': user1
-    }
-
-    return render(request, 'temp_users.html', context)
+def user_detail(request):
+    if request.user.is_authenticated:
+        user = request.user
+        context = {
+            'user': user
+        }
+        return render(request, 'users_detail.html', context)
+    else:
+        return redirect('login_view')
 
 def login_view(request):
     if request.method == "GET":
         print('get')
-        return render(request, 'temp_login.html')
+        return render(request, 'users_login.html')
 
     elif request.method == "POST":
         print('post')
@@ -24,11 +25,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user=user)
-            user = User.objects.get(username=user_id)
-            context = {
-                'user1': user
-            }
-            return render(request, 'temp_users.html', context)
+            return redirect('user_detail')
         else:
-            return redirect('login_url')
+            return redirect('login_view')
 
