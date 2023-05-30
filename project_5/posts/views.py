@@ -75,6 +75,7 @@ class Comment_update(UpdateView):
     fields= ["text", "created_at"]
     success_url = reverse_lazy('posts:comment1')
 
+<<<<<<< Updated upstream
 class Comment_delete(DeleteView):
     model = Comment
     template_name = 'comment_update.html'
@@ -93,6 +94,18 @@ class Reply_delete(DeleteView):
     template_name = 'reply_update.html'
     fields= ["text", "created_at"]
     success_url = reverse_lazy('posts:reply1')
+=======
+# class PostlistView(TemplateView):
+#     template_name = "post_list.html"
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["latest_posts"] = Post.objects.all()
+#         return context
+
+#
+
+>>>>>>> Stashed changes
 
 
 # class PostCreateView(CreateView):
