@@ -10,14 +10,28 @@
 <body>
 
 
-<h1> Post 입력 화면</h1>
-<form action = "{%url 'posts:post-update' %" methode ="POST">
+<h1> Post 수정 화면</h1>
+<!--수정하기-->
+<form action = "{%url 'posts:post-update' %" methode ="PATCH">
     <div>
-        <label for = 'id_content'> 내용 </label>
+        <label for = 'id_content'> 수정 </label>
         <textarea name="content" id="" cols="30" rows = "10"></textarea>
     </div>
     <div>
-        <input type ="submit" value = "글쓰기">
+        <input type ="submit" value = "수정하기">
+    </div>
+
+</form>
+
+
+
+<form action = "{%url 'posts:post-delete' %" methode ="DELETE">
+    <div>
+        <label for = 'id_content'> 삭제 </label>
+<!--        <textarea name="content" id="" cols="30" rows = "10"></textarea>-->
+    </div>
+    <div>
+        <input type ="submit" value = "삭제하기">
     </div>
 
 </form>

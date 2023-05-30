@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from .models import Post, Comment, Reply
-from django.views.generic import DetailView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
+from  django.urls import  reverse_lazy
 
 
 # Create your views here.
 
 
-app_name ="lionlog"
+app_name ="post"
 
 #templateView
 def home(request):
@@ -43,28 +44,55 @@ class PostView(DetailView):
         return context
 
 
+class Post_create(CreateView):
+    model = Post
+    template_name = 'post_create.html'
+    fields= ["title", "writer", "image", "text", "created_at", "views"]
+    success_url = reverse_lazy('posts:post1')
 
+class Post_update(UpdateView):
+    model = Post
+    template_name = 'post_update.html'
+    fields= ["title", "writer", "image", "text", "created_at", "views"]
+    success_url = reverse_lazy('posts:post1')
 
+class Post_delete(DeleteView):
+    model = Post
+    template_name = 'post_update.html'
+    fields= ["title", "writer", "image", "text", "created_at", "views"]
+    success_url = reverse_lazy('posts:post1')
 
+# //////////////////
+class Comment_create(CreateView):
+    model = Comment
+    template_name = 'comment_create.html'
+    fields= ["text", "created_at"]
+    success_url = reverse_lazy('posts:comment1')
 
+class Comment_update(UpdateView):
+    model = Comment
+    template_name = 'comment_update.html'
+    fields= ["text", "created_at"]
+    success_url = reverse_lazy('posts:comment1')
 
+class Comment_delete(DeleteView):
+    model = Comment
+    template_name = 'comment_update.html'
+    fields= ["text", "created_at"]
+    success_url = reverse_lazy('posts:comment1')
 
+# //////////////////
+class Reply_create(CreateView):
+    model = Reply
+    template_name = 'reply_create.html'
+    fields= ["text", "created_at"]
+    success_url = reverse_lazy('posts:reply1')
 
-
-
-
-
-
-# class PostlistView(TemplateView):
-#     template_name = "post_list.html"
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["latest_posts"] = Post.objects.all()
-#         return context
-
-#
-
+class Reply_delete(DeleteView):
+    model = Reply
+    template_name = 'reply_update.html'
+    fields= ["text", "created_at"]
+    success_url = reverse_lazy('posts:reply1')
 
 
 # class PostCreateView(CreateView):
