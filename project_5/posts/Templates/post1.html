@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div style="height:203px; background-color:#394867"></div>
+
+    <p>
+
+            <div>
+            <h3>{{post1.title}}</h3>
+            작성자: {{post1.writer.username}}
+            작성일자: {{post1.created_at}}<br/>
+            조회수: {{post1.views}}<br/><br/><br/>
+            내용: {{post1.text}}<br/>
+            </div>
+
+    </p>
+
+
+    <br>
+    <button onclick="history.back()">Go Back</button>
+    <br><br>
+
+    <div style="background-color:#F1F6F9"> <h3> -----  Comments  -----   </h3> </div>
+
+    <p>
+
+        {% for comment in comment1 %}
+            <p> {{comment.text}} </p>
+            <p> Written by: {{comment.writer.username}}</p>
+
+
+    <div style="background-color:#F1F6F9"></div>
+        ────────── ･ ｡ﾟ☆: *.☽ .* :☆ﾟ. ──────────<br/>
+    ↳ Replies
+            {% if reply1 %}
+                    {% for reply in reply1 %}
+                        {% if reply.comment == comment %}
+                            <p>{{reply.text}}</p>
+                            <p> Written by: {{reply.writer.username}}</p>
+                        {% endif %}
+                    {% endfor %}
+            {% endif %}
+        {% endfor %}
+    <p/>
+</body>
+</html>
