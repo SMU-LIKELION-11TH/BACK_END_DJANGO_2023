@@ -7,7 +7,8 @@
 <body>
 
     <div style="height:203px; background-color:#394867"></div>
-
+    <button onclick="location.href = '{% url 'lionlog:post-update' %}'">수정</button>
+    <button onclick="location.href = '{% url 'lionlog:post-delete' %}'">삭제</button>
     <p>
 
             <div>
@@ -32,16 +33,18 @@
         {% for comment in comment1 %}
             <p> {{comment.text}} </p>
             <p> Written by: {{comment.writer.username}}</p>
-
+            <button onclick="location.href = '{% url 'lionlog:post-delete' %}'">삭제</button>
 
     <div style="background-color:#F1F6F9"></div>
         ────────── ･ ｡ﾟ☆: *.☽ .* :☆ﾟ. ──────────<br/>
     ↳ Replies
+<!--            include-->
             {% if reply1 %}
                     {% for reply in reply1 %}
                         {% if reply.comment == comment %}
                             <p>{{reply.text}}</p>
                             <p> Written by: {{reply.writer.username}}</p>
+<!--                            삭제버튼-->
                         {% endif %}
                     {% endfor %}
             {% endif %}

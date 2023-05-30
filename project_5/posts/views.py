@@ -8,6 +8,7 @@ from django.views.generic import DetailView
 
 app_name ="lionlog"
 
+#templateView
 def home(request):
     return render(request, 'home.html')
 
