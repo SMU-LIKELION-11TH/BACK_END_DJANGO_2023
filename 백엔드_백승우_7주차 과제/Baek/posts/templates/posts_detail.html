@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>게시글</title>
+  <style>
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .post-body {
+      border: 1px solid black;
+      padding: 1rem;
+      background-color: lightgray;
+      word-wrap: break-word;
+    }
+
+    .post-body p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: black;
+    }
+
+    .post-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: gray;
+      margin-bottom: 1rem;
+    }
+
+    .post-info p {
+      margin: 0;
+    }
+
+    .comment {
+      margin: 2rem 0;
+    }
+
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      margin-top: -1.5rem;
+      font-size: 1rem;
+      color: gray;
+    }
+
+    .comment-header h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: normal;
+      color: black;
+    }
+
+    .comment-body {
+      border: 1px solid black;
+      padding: 1rem;
+      background-color: lightgray;
+    }
+
+    .comment-body p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: black;
+    }
+
+    .comment-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: gray;
+      margin-top: 0.2rem;
+      word-wrap: break-word;
+    }
+
+    .comment-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: gray;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+
+    .comment-info p {
+      margin: 0;
+    }
+
+    .recomment {
+      margin-left: 5%;
+      margin-top: 2rem;
+    }
+
+    .recomment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      margin-top: -1.5rem;
+      font-size: 1rem;
+      color: gray;
+    }
+
+    .recomment-header h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: normal;
+      color: black;
+    }
+
+    .recomment-body {
+      border: 1px solid black;
+      padding: 1rem;
+      background-color: lightgray;
+      word-wrap: break-word;
+    }
+
+    .recomment-body p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: black;
+    }
+
+    .recomment-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: gray;
+      margin-top: 0.2rem;
+    }
+
+    .recomment-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: gray;
+      margin-bottom: 1rem;
+    }
+
+    .recomment-info p {
+      margin: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>{{post.title}}</h1>
+  <img>
+  <div class="post-info">
+    <p>카테고리: {{post.category}}</p>
+    <p>작성 시간: {{post.created_at}}</p>
+    <p>수정 시간: {{post.updated_at}}</p>
+    <p>조회 수: {{post.see}}</p>
+    <p>작성자: {{post.user}}</p>
+  </div>
+  <div class="post-body">
+    <p>{{post.content}}</p>
+  </div>
+  {% if request.user == post.user %}
+    <div class="post-actions">
+      <form action="{% url 'post_delete' post.id %}" method="POST">{% csrf_token %}
+        <input type="submit" value="삭제">
+      </form>
+    </div>
+    <div>
+      <form action="{% url 'post_update' post.id %}" method="POST">{% csrf_token %}
+        {{ form.title.label_tag }} {{ form.title }}<br>{{ form.content.label_tag }} {{ form.content }}
+        <input type="submit" value="수정">
+      </form>
+    </div>
+  {% endif %}
+  <div class="comment">
+    <div class="comment-header">
+      <h3>댓글</h3>
+      <button id="comment_create">댓글 쓰기</button>
+      <div id="comment_input" style="display:none;">
+        <form action="{% url 'comment_create' post.id %}" method="POST">{% csrf_token %}
+          <input type="text" id="comment_content" name="comment_content" placeholder="내용">
+          <input type="submit" value="작성">
+        </form>
+      </div>
+    </div>
+    {% for comment in comments %}
+      <div class="comment-info">
+        <p>작성자: {{comment.user}}</p>
+        <p>작성 시간: {{comment.created_at}}</p>
+        <p>수정 시간: {{comment.updated_at}}</p>
+      </div>
+      <div class="comment-body">
+        <div>
+          <p>{{comment.content}}</p>
+        </div>
+      </div>
+      {% if request.user == comment.user %}
+      <div class="comment-actions">
+        <form action="{% url 'comment_delete' comment.id %}" method="POST">{% csrf_token %}
+          <input type="submit" value="삭제">
+        </form>
+      </div>
+      <div>
+      <button class="comment_edit">수정</button>
+      <div class="comment_new_input" style="display:none;">
+        <form action="{% url 'comment_update' comment.id %}" method="POST">{% csrf_token %}
+          <input type="text" name="comment_new_content" style="width: 350px; vertical-align: top;" placeholder="내용">
+          <input type="submit" onclick="" value="수정">
+        </form>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+    <!--<div class="recomment">
+      <div class="recomment-header">
+        <h3>답글</h3>
+        <button id="recomment_create">답글 쓰기</button>
+        <div id="recomment_input" style="display:none;">
+          <form>
+            <input type="text" placeholder="답글 내용 입력">
+            <input type="submit" onclick="alert('답글 작성 완료')" value="작성">
+          </form>
+        </div>
+      </div>
+      <div>
+        <div class="recomment-info">
+          <p>작성자: {{recomment1.user}}</p>
+          <p>작성 시간: {{recomment1.created_at}}</p>
+          <p>수정 시간: {{recomment1.updated_at}}</p>
+        </div>
+        <div class="recomment-body">
+          <div>
+            <p>{{recomment1.content}}</p>
+          </div>
+        </div>
+      </div>
+    </div>-->
+  </div>
+  <script>
+    const isOwnPost = "{{request.user}}" === "{{post.user}}";
+
+    if (isOwnPost) {
+      const postEditBtn = document.getElementById("post_edit");
+      const postInput = document.getElementById("post_input");
+
+      postEditBtn.addEventListener("click", () => {
+        const isFormVisible = postInput.style.display === "block";
+
+        if (isFormVisible) {
+          postInput.style.display = "none";
+        } else {
+          postInput.style.display = "block";
+        }
+      });
+    }
+
+    const commentCreateBtn = document.getElementById("comment_create");
+    const commentInput = document.getElementById("comment_input");
+
+    commentCreateBtn.addEventListener("click", () => {
+      const isFormVisible = commentInput.style.display === "block";
+
+      if (isFormVisible) {
+        commentInput.style.display = "none";
+      } else {
+        commentInput.style.display = "block";
+      }
+    });
+
+    const commentEditBtns = document.querySelectorAll(".comment_edit");
+    const commentNewInputs = document.querySelectorAll(".comment_new_input");
+
+    commentEditBtns.forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        const isFormInvisible = commentNewInputs[index].style.display === "none";
+
+        if (isFormInvisible) {
+          commentNewInputs[index].style.display = "block";
+        } else {
+          commentNewInputs[index].style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
