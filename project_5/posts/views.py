@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from .models import Post, Comment, Reply
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
-from  django.urls import  reverse_lazy
-
+from django import forms
 
 # Create your views here.
 
@@ -26,8 +25,7 @@ def home(request):
 #     }
 #     return render (request, 'post1.html', context)
 
-#
-# #cbv
+#cbv
 class PostView(DetailView):
     model = Post
     template_name = 'post1.html'
@@ -44,111 +42,68 @@ class PostView(DetailView):
         return context
 
 
+
+
 class Post_create(CreateView):
     model = Post
     template_name = 'post_create.html'
     fields= ["title", "writer", "image", "text", "created_at", "views"]
-    success_url = reverse_lazy('posts:post1')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = PostForm()
+        return context
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'text']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'text': forms.TextInput(attrs={'class':'form-control', 'rows':10})
+        }
+        labels = {
+            'title': '제목',
+            'text': '내용'
+        }
+
 
 class Post_update(UpdateView):
     model = Post
     template_name = 'post_update.html'
     fields= ["title", "writer", "image", "text", "created_at", "views"]
-    success_url = reverse_lazy('posts:post1')
+    def get_success_url(self):
+        return reversed('post-list', kwargs={'pk': self.object.pk})
 
-class Post_delete(DeleteView):
-    model = Post
-    template_name = 'post_update.html'
-    fields= ["title", "writer", "image", "text", "created_at", "views"]
-    success_url = reverse_lazy('posts:post1')
 
 # //////////////////
+
 class Comment_create(CreateView):
     model = Comment
     template_name = 'comment_create.html'
     fields= ["text", "created_at"]
-    success_url = reverse_lazy('posts:comment1')
+    # success_url = reverse_lazy('posts:comment1')
 
 class Comment_update(UpdateView):
     model = Comment
     template_name = 'comment_update.html'
     fields= ["text", "created_at"]
-    success_url = reverse_lazy('posts:comment1')
+    def get_success_url(self):
+        return reversed('comment-list', kwargs={'pk': self.object.pk})
 
-<<<<<<< Updated upstream
-class Comment_delete(DeleteView):
-    model = Comment
-    template_name = 'comment_update.html'
-    fields= ["text", "created_at"]
-    success_url = reverse_lazy('posts:comment1')
 
 # //////////////////
 class Reply_create(CreateView):
     model = Reply
     template_name = 'reply_create.html'
     fields= ["text", "created_at"]
-    success_url = reverse_lazy('posts:reply1')
+    # success_url = reverse_lazy('posts:reply1')
 
 class Reply_delete(DeleteView):
     model = Reply
-    template_name = 'reply_update.html'
+    template_name = 'reply_delete.html'
     fields= ["text", "created_at"]
-    success_url = reverse_lazy('posts:reply1')
-=======
-# class PostlistView(TemplateView):
-#     template_name = "post_list.html"
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["latest_posts"] = Post.objects.all()
-#         return context
-
-#
-
->>>>>>> Stashed changes
-
-
-# class PostCreateView(CreateView):
-#     model = Post
-#     fields= ["title", "writer", "image", "text", "created_at", "views"]
-#     template_name_suffix = "post_create.html"
-#
-#
-#
-# class CommentCreateView(CreateView):
-#     model = Comment
-#     fields= ["text", "created_at"]
-#     template_name_suffix = "post_create.html"
+    # success_url = reverse_lazy('posts:reply1')
 
 
 
 
-# def post_create(request):
-#     # form 요청, 데이터 생성
-#     if request.method == 'GET':
-#         return render (request, 'post_create.html')
-#     else:
-#         content = request.POST.get('content')
-#         print(content)
-#         Post.objects.create(
-#             content= content,
-#             # writer = request.user
-#         )
-#         return redirect('index')
-#
-#
-# # class post_detail_view???
-# # def post_detail(request, id):
-# #     return render(request, 'post_create.html')
-#
-# def post_update(request, id):
-#     post1 = Post.objects.get(id=id)
-#     if request.method == 'GET':
-#         context = {'post1':post1}
-#         return render(request, 'post_create.html', context)
-#     elif request.method =='POST':
-#         pass
-#
-#
-# def post_delete(request, id):
-#     return render(request, 'post_create.html')

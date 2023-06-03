@@ -15,46 +15,39 @@
             작성자: {{post1.writer.username}}
             작성일자: {{post1.created_at}}<br/>
             조회수: {{post1.views}}<br/><br/>
-            <button onclick="location.href = '{% url 'posts:post-update' %}'"> 게시글 수정</button>
-            <button onclick="location.href = '{% url 'posts:post-delete' %}'"> 게시글 삭제</button>
-            <br/><br/><br/><br/>
 
-            내용: {{post1.text}}<br/>
+            내용: {{post1.text}}
+            <button onclick="location.href = '{% url 'post:post-update' post1.id %}'"> 게시글 수정/삭제</button>
+
             </div>
 
     </p>
 
-
-    <br>
+    <br/>
     <button onclick="history.back()">Go Back</button>
-    <br><br>
+    <br/><br/>
 
-    <div style="background-color:#F1F6F9"> <h3> -----  Comments  -----   </h3> </div>
+    <div style="background-color:#F1F6F9"> <h4> -----  Comments  -----   </h4> </div>
 
     <p>
 
         {% for comment in comment1 %}
-            <p> {{comment.text}} </p>
-            <p> Written by: {{comment.writer.username}}</p>
-                <button onclick="location.href = '{% url 'posts:comment-update' %}'">댓글 수정</button>
-                <button onclick="location.href = '{% url 'posts:comment-delete' %}'">댓글 삭제</button>
 
-    <div style="background-color:#F1F6F9"></div>
-        ────────── ･ ｡ﾟ☆: *.☽ .* :☆ﾟ. ──────────<br/>
-    ↳ Replies
+            <p> user: {{comment.writer.username}} - {{comment.text}}</p>
+                <button onclick="location.href = '{% url 'post:comment-update' post1.id %}'">댓글 수정/삭제</button>
+<br/><br/><br/><br/>
+    <div style="background-color:#F1F6F9">────────── ･ ｡ﾟ☆: *.☽ .* :☆ﾟ. ──────────</div>
+    <h4>↳ Replies<h4/>
 
       {% include "reply_create.html" %}
-
-
 
 
             {% if reply1 %}
                     {% for reply in reply1 %}
                         {% if reply.comment == comment %}
-                            <p>{{reply.text}}</p>
-                            <p> Written by: {{reply.writer.username}}</p>
+                            <p> user: {{reply.writer.username}} - {{reply.text}} </p>
 
-                            <button onclick="location.href = '{% url 'posts:reply-delete' %}'">답글 삭제</button>
+                            <button onclick="location.href = '{% url 'post:reply-delete' post1.id %}'">답글 삭제</button>
 <!--                            삭제버튼-->
                         {% endif %}
                     {% endfor %}

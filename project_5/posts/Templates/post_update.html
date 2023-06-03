@@ -12,10 +12,11 @@
 
 <h1> Post 수정 화면</h1>
 <!--수정하기-->
-<form action = "{%url 'posts:post-update' %" methode ="PATCH">
+
+<form action = "{%url 'post:post-update' post.id %" methode ="POST">
     <div>
         <label for = 'id_content'> 수정 </label>
-        <textarea name="content" id="" cols="30" rows = "10"></textarea>
+        <textarea name="content" id="id_content" cols="30" rows = "10"></textarea>
     </div>
     <div>
         <input type ="submit" value = "수정하기">
@@ -24,8 +25,13 @@
 </form>
 
 
+<form action = "{%url 'post:post-delete' post.id %" methode ="POST">
 
-<form action = "{%url 'posts:post-delete' %" methode ="DELETE">
+<!--        def delete_post(self, request, pk):-->
+<!--        obj = get object(Post, pk=pk)-->
+<!--        obj.delete()-->
+<!--        return HttpResponse("삭제되었습니다.")-->
+
     <div>
         <label for = 'id_content'> 삭제 </label>
 <!--        <textarea name="content" id="" cols="30" rows = "10"></textarea>-->

@@ -10,10 +10,10 @@
 <body>
 
 <h3> Comment 입력 화면</h3>
-<form action = "{%url 'posts:post-create' %" methode ="POST">
+<form action = "{%url 'post:comment-create' %" methode ="POST">
     <div>
-        <label for = 'id_content'> 내용 </label>
-        <textarea name="content" id="" cols="30" rows = "10"></textarea>
+<!--        <label for = 'id_content'> 내용 </label>-->
+        <textarea name="content" id="" cols="30" rows = "5"></textarea>
     </div>
     <div>
         <input type ="submit" value = "댓글쓰기">
