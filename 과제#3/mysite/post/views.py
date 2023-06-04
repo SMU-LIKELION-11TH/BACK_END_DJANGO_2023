@@ -1,31 +1,33 @@
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from .models import Users, Stores, Menus
 
-def test(request):
-    name = 'username'
-    return HttpResponse(''' <h1> 로그인에 성공하셨습니다. </h1> 
-                            <p>환영합니다. {name} 님</p> 
-                            <p>반가워요</p>'''.format(name=name))
 def homepage(request):
+    users = Users.objects.values('username', 'address').first()
+    stores = Stores.objects.values('store_link', 'store_name').first()
 
-    if request.method == "GET":
-        context = {
-        "username":request.user,
-        "address" :'서울특별시 종로구 홍지문2길 20',
-        }
-        return render(request, 'home.html', context)
+    context = {
+        "username": users['username'] if users else None,
+        "address": users['address'] if users else None,
+        "store_link": stores['store_link'] if stores else None,
+        "store_name": stores['store_name'] if stores else None,
+    }
 
-    if request.method == "POST":
-        return HttpResponse("")
+    return render(request, 'home.html', context)
+def store(request):
+    stores = Stores.objects.values('store_name', 'store_address').first()
+    menus = Menus.objects.values('menu_name', 'menu_price')
 
-def store_1(request):
-    name = '부대통령'
-    return render(request, 'store1.html', {'name':name})
+    context = {
+        "store_name": stores['store_name'] if stores else None,
+        "address": stores['store_address'] if stores else None,
+        "menu": menus['menu_name'] if menus else None,
+        "price": menus['menu_price'] if menus else None,
+    }
 
-def store_2(request):
-    name = '치즈밥있슈'
-    return render(request, 'store2.html', {'name':name})
+    return render(request, 'store.html', context)
 
 def login(request):
-    name = '로그인'
-    return render(request, 'login.html', {'name':name})
+    if request.method == "POST":
+        return redirect('homepage')
+    else:
+        return render(request, 'login.html')
