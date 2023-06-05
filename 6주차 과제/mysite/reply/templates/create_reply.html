@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="style.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -17,14 +16,17 @@
                   </h3>
           </div>
              <div class ="detail">
-                 <ol><a href="/post/create/">글쓰기</a></ol>
-                 {% for post in posts %}
-                    <li><a href="/post/{{post.id}}/">{{post.title}}</a></li>
-                 {% endfor %}
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                     <button type="submit">답글 작성</button>
+                </form>
+
              </div>
 
         </div>
 
-
 </body>
 </html>
+
+

@@ -20,10 +20,13 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
     path('post/', include('post.urls')),
     path('user/', include('user.urls')),
-    path('comment/', include('comment.urls'))
+    path('comment/', include('comment.urls')),
+    path('',include('single_page.urls')),
+    path('reply/',include('reply.urls'))
 
 
 ]

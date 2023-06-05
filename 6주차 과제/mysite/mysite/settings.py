@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'user',
     'comment',
     'reply',
+    'single_page'
 ]
 
 MIDDLEWARE = [

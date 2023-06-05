@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <link href="style.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Title</title>
-
-
 </head>
 <body>
 
@@ -13,22 +10,23 @@
         <div class ="main">
           <div class ="menu">
               <h3>
-              <ol><a href="LIKELION.html">Home</a></ol>
-              <ol><a href="post.html">Post</a></ol>
+              <ol><a href="">Home</a></ol>
+              <ol><a href="/post/list/">Post</a></ol>
               <ol><a href="log-in.html">Log In</a></ol>
                   </h3>
           </div>
              <div class ="detail">
-               <h2>{{post,title}}</h2>
-               <center>
-               <img src="{{post.image.url}}" width="200">
-                <p> {{post.detail}}</p>
-                 </center>
-
-
+               <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">글 작성</button>
+                </form>
              </div>
-        </div>
 
+        </div>
 
 </body>
 </html>
+
+
+

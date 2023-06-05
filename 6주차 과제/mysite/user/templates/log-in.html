@@ -17,20 +17,29 @@
                   </h3>
           </div>
              <div class ="detail">
-                 <form>
-
-                    <p>
-                        <strong>이메일</strong>
-                        <input type="text" name ='name' value ='이메일 입력'>
-                    </p>
-                    <p>
-                        <strong>비밀번호</strong>
-                        <input type="password" name ='password' value ='비밀번호 입력'>
-                    </p>
-                    <p>
-                        <input type = "submit" value="제출">
-                    </p>
+                 <form method="post">
+                    {% csrf_token %}
+                    {% if error_message %}
+                        <p>{{ error_message }}</p>
+                    {% endif %}
+                    {{ form.as_p }}
+                    <button type="submit">로그인</button>
                  </form>
+
+<!--                 <form>-->
+
+<!--                    <p>-->
+<!--                        <strong>이메일</strong>-->
+<!--                        <input type="text" name ='name' value ='이메일 입력'>-->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        <strong>비밀번호</strong>-->
+<!--                        <input type="password" name ='password' value ='비밀번호 입력'>-->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        <input type = "submit" value="제출">-->
+<!--                    </p>-->
+<!--                 </form>-->
              </div>
 
         </div>
