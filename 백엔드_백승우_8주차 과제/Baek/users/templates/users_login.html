@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>로그인</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{% static 'css/users_login.css' %}">
+</head>
+<body>
+	<h1>LOGIN</h1>
+	<form method="post">{% csrf_token %}
+		<label for="id">ID</label>
+		<input type="text" id="username" name="username" placeholder="id">
+		<label for="password">PW</label>
+		<input type="password" id="password" name="password" placeholder="password">
+		<input type="submit" onclick="" value="로그인">
+	</form>
+</body>
+</html>
