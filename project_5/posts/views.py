@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from .models import Post, Comment, Reply
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django import forms
+from django.views.generic import UpdateView
+from django.urls import reverse
+from datetime import datetime
+
 
 # Create your views here.
 
@@ -70,10 +74,21 @@ class PostForm(forms.ModelForm):
 class Post_update(UpdateView):
     model = Post
     template_name = 'post_update.html'
-    fields= ["title", "writer", "image", "text", "created_at", "views"]
+    fields= ["text"]
     def get_success_url(self):
-        return reversed('post-list', kwargs={'pk': self.object.pk})
+        return reverse('post-list', kwargs={'id': self.object.id})
+    def form_valid(self, form):
+        form.instance.created_at = datetime.now()
+        return super.form_valid(form)
 
+
+class Post_delete(DeleteView):
+    model = Post
+    template_name = 'post_update.html'
+    def delete_post(request, id):
+        post = get_object_or_404(Post, id= id)
+        post.delete()
+        return redirect('home')
 
 # //////////////////
 
@@ -88,7 +103,13 @@ class Comment_update(UpdateView):
     template_name = 'comment_update.html'
     fields= ["text", "created_at"]
     def get_success_url(self):
-        return reversed('comment-list', kwargs={'pk': self.object.pk})
+        return reverse('comment-list', kwargs={'id': self.object.id})
+
+class Comment_deltete(DeleteView):
+    model = Comment
+    template_name = 'comment_update.html'
+    fields = [""]
+
 
 
 # //////////////////

@@ -9,28 +9,31 @@
 
 <body>
 
+    <div style="height:203px; background-color:#394867"></div>
+
 
 <h1> Post 수정 화면</h1>
-<!--수정하기-->
-
-<form action = "{%url 'post:post-update' post.id %" methode ="POST">
+<form action = "{%url 'post:post-update' id = post.id %" methode ="POST">
     <div>
         <label for = 'id_content'> 수정 </label>
-        <textarea name="content" id="id_content" cols="30" rows = "10"></textarea>
+        <textarea name="content" id="id_content" cols="30" rows = "10">{{post.text}}</textarea>
     </div>
     <div>
         <input type ="submit" value = "수정하기">
     </div>
-
 </form>
 
 
-<form action = "{%url 'post:post-delete' post.id %" methode ="POST">
+    Q. 오류 메세지 "Generic detail view Reply_delete must be called with either an object pk or a slug in the URLconf."...왜 뜨는지 모르겠습니다.
 
-<!--        def delete_post(self, request, pk):-->
-<!--        obj = get object(Post, pk=pk)-->
-<!--        obj.delete()-->
-<!--        return HttpResponse("삭제되었습니다.")-->
+
+
+
+
+<!--삭제하기-->
+    <h1> Post 삭제 화면</h1>
+
+<form action = "{%url 'post:post-delete' post.id %" methode ="POST">
 
     <div>
         <label for = 'id_content'> 삭제 </label>

@@ -30,8 +30,11 @@
     <div style="background-color:#F1F6F9"> <h4> -----  Comments  -----   </h4> </div>
 
     <p>
+      {% include "comment_create.html" %}
+
 
         {% for comment in comment1 %}
+
 
             <p> user: {{comment.writer.username}} - {{comment.text}}</p>
                 <button onclick="location.href = '{% url 'post:comment-update' post1.id %}'">댓글 수정/삭제</button>
