@@ -6,7 +6,7 @@ app_name ="post"
 urlpatterns = [
     path("", views.home, name='home'),
     # path("create/", views.Post_create.as_view(), name='post-create'), //post create는 /home/에서
-    path("<int:id>/", views.PostView.as_view(),name='post-list'),
+    path("<int:id>/", views.PostView.as_view(),name='DetailView'),
     path("<int:id>/edit/", views.Post_update.as_view(), name='post-update'),
 
     # path("comment/<int:id>/", views.CommentView.as_view(), name='comment-list'),

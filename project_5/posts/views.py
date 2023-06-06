@@ -3,8 +3,8 @@ from .models import Post, Comment, Reply
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django import forms
 from django.views.generic import UpdateView
-from django.urls import reverse
 from datetime import datetime
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -76,7 +76,8 @@ class Post_update(UpdateView):
     template_name = 'post_update.html'
     fields= ["text"]
     def get_success_url(self):
-        return reverse('post-list', kwargs={'id': self.object.id})
+        # return reverse_lazy('post-list', kwargs={'id': self.object.id})
+        return reverse_lazy("post:DetailView",args=[self.get_object().pk])
     def form_valid(self, form):
         form.instance.created_at = datetime.now()
         return super.form_valid(form)
@@ -92,10 +93,16 @@ class Post_delete(DeleteView):
 
 # //////////////////
 
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text']
+
 class Comment_create(CreateView):
     model = Comment
+    from_class = CommentForm
     template_name = 'comment_create.html'
-    fields= ["text", "created_at"]
+    fields= ["text","created_at"]
     # success_url = reverse_lazy('posts:comment1')
 
 class Comment_update(UpdateView):
@@ -103,16 +110,18 @@ class Comment_update(UpdateView):
     template_name = 'comment_update.html'
     fields= ["text", "created_at"]
     def get_success_url(self):
-        return reverse('comment-list', kwargs={'id': self.object.id})
+        return reverse_lazy('comment-list', kwargs={'id': self.object.id})
 
 class Comment_deltete(DeleteView):
     model = Comment
     template_name = 'comment_update.html'
-    fields = [""]
-
-
-
+    fields = ["text", "created_at"]
+    success_url = reverse_lazy('form')
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['post.id']
+        return super().form_valid(form)
 # //////////////////
+
 class Reply_create(CreateView):
     model = Reply
     template_name = 'reply_create.html'
