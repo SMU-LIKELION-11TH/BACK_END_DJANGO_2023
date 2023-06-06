@@ -4,3 +4,6 @@
 [submodule "[과제 #5] fbv로 만든 코드 cbv로 변환하기"]
 	path = "[과제 #5] fbv로 만든 코드 cbv로 변환하기"
 	url = https://github.com/Hepheir/blog-django
+[submodule "[과제 #6] my blog refactoting"]
+	path = "[과제 #6] my blog refactoting"
+	url = https://github.com/Hepheir/blog-django
