@@ -5,12 +5,11 @@
     <title>Title</title>
 </head>
 {% csrf_token %}
-{{form}}
+<!--{{form}}-->
 
 <body>
 
     <div style="height:203px; background-color:#394867"></div>
-
 
 <h1> Post 수정 화면</h1>
 <form action = "{%url 'post:post-update' id = post.id %" methode ="POST">
@@ -32,7 +31,7 @@
 <!--삭제하기-->
     <h1> Post 삭제 화면</h1>
 
-<form action = "{%url 'post:post-delete' post.id %" methode ="POST">
+<form action = "{%url 'post:post-delete' post.id %}" methode ="POST">
 
     <div>
         <label for = 'id_content'> 삭제 </label>
@@ -43,7 +42,6 @@
     </div>
 
 </form>
-
 
 
 

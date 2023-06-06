@@ -46,8 +46,6 @@ class PostView(DetailView):
         return context
 
 
-
-
 class Post_create(CreateView):
     model = Post
     template_name = 'post_create.html'
@@ -75,23 +73,39 @@ class Post_update(UpdateView):
     model = Post
     template_name = 'post_update.html'
     fields= ["text"]
+    pk_url_kwarg = 'id'
     def get_success_url(self):
-        # return reverse_lazy('post-list', kwargs={'id': self.object.id})
         return reverse_lazy("post:DetailView",args=[self.get_object().pk])
     def form_valid(self, form):
         form.instance.created_at = datetime.now()
         return super.form_valid(form)
 
+# class Post_delete(DeleteView):
+#     model = Post
+#     template_name = 'post1.html'
+#     def get(self, request, *args, **kwargs ):
+#         return self.post(request, *args, *kwargs)
+#     def get_success_url(self):
+#         return reverse_lazy('home')
 
-class Post_delete(DeleteView):
-    model = Post
-    template_name = 'post_update.html'
-    def delete_post(request, id):
-        post = get_object_or_404(Post, id= id)
+
+
+# delete
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+
+    if request.method == 'POST':
         post.delete()
         return redirect('home')
 
+    return render(request, 'post_delete.html', {'post': post})
+
+
+
 # //////////////////
+
+
+
 
 class CommentForm(forms.ModelForm):
     class Meta:
