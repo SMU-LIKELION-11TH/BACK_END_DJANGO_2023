@@ -24,17 +24,19 @@ def post_detail(request,id):
     return render(request, '3월 일기.html', context)
 
 
-@login_required
+# @login_required
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
             title = form.cleaned_data['title']
             content = form.cleaned_data['content']
-            return redirect('home')
-    else:
-        form = PostForm()
-    return render(request, 'create_post.html', {'form': form})
+            post = Post(title=title, content=content)
+            post.save()
+            return redirect('post_list')
+        else:
+            form = PostForm()
+    return render(request, 'create_post.html')
 
 
 def update_post(request, post_id):
@@ -46,11 +48,11 @@ def update_post(request, post_id):
                 return redirect('post_detail', post_id=post.id)
         else:
             form = PostForm(instance=post)
-        return render(request, 'update_post.html', {'form': form, 'post': post})
+        return render(request, '3월 일기.html', {'form': form, 'post': post})
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     post.delete()
-    return redirect('post_list')
+    return redirect('post_detail')
 
 
 
