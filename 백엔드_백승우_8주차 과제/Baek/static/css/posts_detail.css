@@ -1,0 +1,164 @@
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .post-body {
+      border: 1px solid black;
+      padding: 1rem;
+      background-color: lightgray;
+      word-wrap: break-word;
+    }
+
+    .post-body p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: black;
+    }
+
+    .post-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: gray;
+      margin-bottom: 1rem;
+    }
+
+    .post-info p {
+      margin: 0;
+    }
+
+    .comment {
+      margin: 2rem 0;
+    }
+
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      margin-top: -1.5rem;
+      font-size: 1rem;
+      color: gray;
+    }
+
+    .comment-header h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: normal;
+      color: black;
+    }
+
+    .comment-body {
+      border: 1px solid black;
+      padding: 1rem;
+      background-color: lightgray;
+    }
+
+    .comment-body p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: black;
+    }
+
+    .comment-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: gray;
+      margin-top: 0.2rem;
+      word-wrap: break-word;
+    }
+
+    .comment-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: gray;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+
+    .comment-info p {
+      margin: 0;
+    }
+
+    .recomment {
+      margin-left: 5%;
+      margin-top: 2rem;
+    }
+
+    .recomment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      margin-top: -1.5rem;
+      font-size: 1rem;
+      color: gray;
+    }
+
+    .recomment-header h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: normal;
+      color: black;
+    }
+
+    .recomment-body {
+      border: 1px solid black;
+      padding: 1rem;
+      background-color: lightgray;
+      word-wrap: break-word;
+    }
+
+    .recomment-body p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: black;
+    }
+
+    .recomment-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: gray;
+      margin-top: 0.2rem;
+    }
+
+    .recomment-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: gray;
+      margin-bottom: 1rem;
+    }
+
+    .recomment-info p {
+      margin: 0;
+    }
+
+    .home-button {
+      position: absolute;
+      top: 155px;
+      right: 8px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 7px;
+      width: 60px; height: 28px;
+      border: 1px solid black;
+      background-color: lightgray;
+      text-decoration: none;
+      color: black;
+      text-align: center;
+      border-radius: 5px;
+    }
+    .home-button:hover {
+      background-color: white;
+    }

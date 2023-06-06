@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% block static %}
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 작성</title>
+</head>
+{% endblock %}
+{% block content %}
+<body>
+    <h1>게시글 작성</h1>
+    <div>
+        <form action="{% url 'post_create' %}" method="POST">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="작성">
+        </form>
+    </div>
+</body>
+{% endblock %}
+</html>

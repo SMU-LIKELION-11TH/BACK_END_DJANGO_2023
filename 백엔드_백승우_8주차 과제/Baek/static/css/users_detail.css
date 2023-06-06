@@ -1,0 +1,43 @@
+		.container {
+			display: flex;
+			flex-direction: column;
+			margin-top: 50px;
+			font-size: 20px;
+		}
+		.item {
+			display: flex;
+			margin-bottom: 15px;
+		}
+		.label {
+			font-weight: bold;
+			margin-right: 10px;
+		}
+		.button {
+			background-color: gray;
+			color: white;
+			border: none;
+			cursor: pointer;
+			margin-left: 10px;
+		}
+		input[type="submit"] {
+			padding: 5px 10px;
+			background-color: gray;
+			color: white;
+			border: none;
+			cursor: pointer;
+			margin-left: 0px;
+		}
+		.category {
+			font-size: 22px;
+			display: block;
+			width: 11%;
+			height: 28px;
+			padding: 3px;
+			margin-left: 85%;
+			border: 0.5px solid black;
+		}
+		a {
+			text-decoration: none;
+			color: black;
+        	border: 1px solid black;
+        }

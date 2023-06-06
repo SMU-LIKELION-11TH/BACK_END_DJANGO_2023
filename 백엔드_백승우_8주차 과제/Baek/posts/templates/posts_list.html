@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  {% block static %}
+  <head>
+    <title>게시판</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/posts_list.css' %}">
+  </head>
+  {% endblock %}
+  {% block content %}
+  <body class="board">
+    <div class="header">
+      <h1>게시판</h1>
+    </div>
+    <div class="create-post">
+        <a href="{% url 'post_create' %}" class="button">게시글 작성</a>
+    </div>
+    <div class="user-info">
+        <a href="{% url 'user_detail' %}" class="button">{{user.username}}</a>
+    </div>
+    <div class="categories">
+      <h3>카테고리</h3>
+    </div>
+    <div class="board-body">
+      <ul>
+        <li>
+          <details>
+            <summary>category1</summary>
+            <ul>
+              {% for post in post_list1 %}
+                <li>
+                  <a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        </li>
+        <li>
+         <details>
+            <summary>category2</summary>
+            <ul>
+              {% for post in post_list2 %}
+                <li>
+                  <a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        </li>
+        <li>
+         <details>
+            <summary>category3</summary>
+            <ul>
+              {% for post in post_list3 %}
+                <li>
+                  <a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        </li>
+        <li>
+         <details>
+            <summary>category4</summary>
+            <ul>
+              {% for post in post_list4 %}
+                <li>
+                  <a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+  <script>
+  </script>
+  </body>
+  {% endblock %}
+</html>
