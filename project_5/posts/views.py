@@ -1,11 +1,10 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from .models import Post, Comment, Reply
-from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, View
 from django import forms
 from django.views.generic import UpdateView
 from datetime import datetime
 from django.urls import reverse_lazy
-
 
 # Create your views here.
 
@@ -91,16 +90,35 @@ class Post_update(UpdateView):
 
 
 # delete
-def post_delete(request, pk):
-    post = get_object_or_404(Post, pk=pk)
+# def Post_delete(request, pk):
+#     post = get_object_or_404(Post, pk=pk)
+#
+#     if request.method == 'POST':
+#         post.delete()
+#         return redirect('home')
+#
+#     return render(request, 'post_delete.html', {'post': post})
+# class Post_delete(DeleteView):
+#     def post(self, request, pk):
+#         post = get_object_or_404(Post, pk=pk)
+#         post.delete()
+#         return redirect('home')
+#
+#     def get(self, request, pk):
+#         post = get_object_or_404(Post, pk=pk)
+#         return render(request, 'post_delete.html', {'post': post})
+#
+#
 
-    if request.method == 'POST':
-        post.delete()
-        return redirect('home')
+class Post_delete(View):
+    def post_delete(self, request, pk):
+        post = get_object_or_404(Post, pk=pk)
 
-    return render(request, 'post_delete.html', {'post': post})
+        if request.method == 'POST':
+            post.delete()
+            return redirect('home')
 
-
+        return render(request, 'post_delete.html', {'post': post})
 
 # //////////////////
 
