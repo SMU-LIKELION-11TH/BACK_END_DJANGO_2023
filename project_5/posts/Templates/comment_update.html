@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% csrf_token %}
+{{form}}
+
+<body>
+
+
+<h1> Comment 삭제 화면</h1>
+<form action = "{%url 'post:comment-update' %" methode ="DELETE">
+    <div>
+        <label for = 'id_content'> 삭제 </label>
+        <textarea name="content" id="" cols="30" rows = "10"></textarea>
+    </div>
+    <div>
+        <input type ="submit" value = "댓글 삭제">
+    </div>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

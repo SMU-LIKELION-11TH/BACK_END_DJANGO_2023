@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% csrf_token %}
+{{form}}
+
+<body>
+
+
+<h1> Reply 삭제 화면</h1>
+<form action = "{%url 'post:reply-delete' %" methode ="DELETE">
+    <div>
+        <label for = 'id_content'> 삭제 </label>
+        <textarea name="content" id="" cols="30" rows = "10"></textarea>
+    </div>
+    <div>
+        <input type ="submit" value = "답글 삭제">
+    </div>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
