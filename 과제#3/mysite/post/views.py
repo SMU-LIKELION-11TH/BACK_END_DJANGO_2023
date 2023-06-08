@@ -1,27 +1,23 @@
 from django.shortcuts import render
-from .models import Users, Stores, Menus
+from .models import Stores, Menus
+from .forms import OrderForm
 
 def homepage(request):
-    users = Users.objects.values('username', 'address').first()
-    stores = Stores.objects.values('store_link', 'store_name').first()
-
+    stores = Stores.objects.all()
+    form = OrderForm()
     context = {
-        "username": users['username'] if users else None,
-        "address": users['address'] if users else None,
-        "store_link": stores['store_link'] if stores else None,
-        "store_name": stores['store_name'] if stores else None,
+        "stores": stores,
+        "form": form,
     }
 
     return render(request, 'home.html', context)
-def store(request):
-    stores = Stores.objects.values('store_name', 'store_address').first()
-    menus = Menus.objects.values('menu_name', 'menu_price')
-
+def store(request, id):
+    store = Stores.objects.get(id=id)
+    menus = Menus.objects.filter(store_name=id)
+# get, filter ()안에 조건 씀, get은 조건에 맞는 한개, filter은 조건에 맞는 모든 것, 검색이 존재하냐 아니냐에 딸 사용용도가 다름 get은 id 사용
     context = {
-        "store_name": stores['store_name'] if stores else None,
-        "address": stores['store_address'] if stores else None,
-        "menu": menus['menu_name'] if menus else None,
-        "price": menus['menu_price'] if menus else None,
+        "store": store,
+        "menus": menus,
     }
 
     return render(request, 'store.html', context)

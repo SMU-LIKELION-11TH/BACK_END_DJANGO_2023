@@ -10,24 +10,19 @@
             사용자 이름: <p>{{username}}</p>
             주소: <p>{{address}}</p>
         <p>
+
+            <ul>
+                {% for store in stores %}
+                <a href="{% url 'store' store.id %}"><lI>가게 이름 : {{store.store_name}}</lI></a>
+                <lI>주소 : {{store.store_address}}</lI>
+                {% endfor %}
+            </ul>
+
             <p>
                 <strong>주문 가게</strong>
                 <input type = "text" name = "name" value="주문할 가게명 입력">
             </p>
-            <p>
-                <strong>메뉴</strong>
-                <input type = "text" name = "name" value="주문할 메뉴 입력">
-            </p>
-            <p>
-                <strong>수량</strong>
-                <input type = "text" name = "name" value="메뉴 수량 입력">
-            </p>
-            <p>
-                <input type = "submit" value="주문">
-            </p>
 
-            <p>
-                <h3>가게 정보</h3><br>
-                <a href= {{store_link}} >{{store_name}}</a>
-            </p>
+        </p>
+
     </body>

@@ -2,13 +2,12 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
+
 class Users(AbstractUser):
     address = models.CharField(max_length=256)
 
-
 class Orders(models.Model):
     orderer_id = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='orderer_orders')
-    shipping_address = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='shipping_address_orders')
     additional_request = models.CharField(max_length=256)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -16,11 +15,9 @@ class Orders(models.Model):
 class Manager(models.Manager):
     pass
 
-
 class Stores(models.Model):
     store_name = models.CharField(max_length=20)
     store_address = models.CharField(max_length=256)
-    store_link = models.CharField(max_length=1000)
     objects = Manager()
 
 

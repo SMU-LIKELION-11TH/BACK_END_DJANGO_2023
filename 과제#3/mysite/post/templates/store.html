@@ -4,12 +4,17 @@
         <meta charset="utf-8">
     </head>
     <body>
-                <h3>가게 정보</h3>
-                가게명: {{store_name}}<br>
-                주소: {{store_address}}<br>
-                메뉴: {{menu}}<br>
-                가격: {{price}}<br>
-            </p>
+        <h3>가게 정보</h3>
+        <ul>
+            <lI>가게 이름 : {{store.store_name}}</lI>
+            <lI>주소 : {{store.store_address}}</lI>
+        </ul>
+        <ul>
+            {% for menu in menus %}
+            <lI>메뉴 : {{menu.menu_name}}</lI>
+            <lI>가격 : {{menu.menu_price}}</lI>
+            {% endfor %}
+        </ul>
             <p>
                 <strong>평점 남기기</strong>
                 <input type = "radio" name = "menu" value="5">5
